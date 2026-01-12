@@ -12,27 +12,27 @@ const entregas = [
 ];
 
 app.get("/", (req, res) => {
-  res.send("Servidor Express ativo");
+  res.status(200).send("Servidor Express ativo");
 });
 
 
 app.get("/entregas", (req, res) => {
-  res.json(entregas);
+  res.status(200).json(entregas);
 });
 
 
 app.get("/entregas/ativas", (req, res) => {
-  res.json(entregas.filter(e => e.status === "em_rota"));
+  res.status(200).json(entregas.filter(e => e.status === "em_rota"));
 });
 
 
 app.get("/entregas/resumo", (req, res) => {
-  res.json(entregas.map(e => ({ id: e.id, status: e.status })));
+  res.status(200).json(entregas.map(e => ({ id: e.id, status: e.status })));
 });
 
 
 app.get("/pendentes", (req, res) => {
-  res.json(entregas.filter(e => e.status === "pendente"));
+  res.status(200).json(entregas.filter(e => e.status === "pendente"));
 });
 
 
@@ -40,13 +40,13 @@ app.get("/motoristas", (req, res) => {
   const nome = req.query.nome;
 
   if (nome) {
-    return res.json(
+    return res.status(200).json(
       entregas.filter(e => e.motorista.toLowerCase() === nome.toLowerCase())
     );
   }
 
   const motoristas = [...new Set(entregas.map(e => e.motorista))];
-  res.json(motoristas);
+  res.status(200).json(motoristas);
 });
 
 
@@ -55,7 +55,7 @@ app.get("/relatorio", (req, res) => {
   const emRota = entregas.filter(e => e.status === 'em_rota').length;
   const entregues = entregas.filter(e => e.status === 'entregue').length;
 
-  res.json({ total, emRota, entregues });
+  res.status(200).json({ total, emRota, entregues });
 });
 
 app.get("/status-entregas", (req, res) => {
@@ -75,7 +75,7 @@ app.get("/status-entregas", (req, res) => {
     }
   }
 
-  res.json({
+  res.status(200).json({
     totais,
     motoristaComMaisEntregas: motoristaTop,
     totalDeEntregas: maiorTotal
