@@ -1,0 +1,28 @@
+{
+  "name": "entregas-api",
+  "version": "1.0.0",
+  "description": "Atividade desenvolvida lab-02 do modulo de back-end indt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuki-Hub98/entregas-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Yuki-Hub98/entregas-api/issues"
+  },
+  "homepage": "https://github.com/Yuki-Hub98/entregas-api#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
